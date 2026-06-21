@@ -1,25 +1,18 @@
 """Model Comparison — placeholder page."""
 
+from src.i18n.translations import page_header, placeholder_banner, render_footer, t
 import streamlit as st
 
-from src.i18n.translations import page_setup, placeholder_banner, render_footer, t
-
-lang = page_setup("model_comparison_title", icon="⚖️")
-
-st.title(f"⚖️ {t('model_comparison_title')}")
-st.markdown(f"#### {t('model_comparison_desc')}")
-st.write("")
-
+page_header("model_comparison_title", "model_comparison_desc", icon="⚖️")
 placeholder_banner()
 
 # Models that will be compared once training is implemented.
 models = ["Logistic Regression", "Neural Network", "LSTM", "AraBERT"]
-cols = st.columns(len(models))
-for col, name in zip(cols, models):
-    col.markdown(
-        f'<div class="bzu-card"><h3>{name}</h3>'
-        f'<span class="bzu-badge">{t("coming_soon")}</span></div>',
-        unsafe_allow_html=True,
-    )
+cards = "".join(
+    f'<div class="feature-card"><div class="feature-icon">🧠</div>'
+    f'<h3>{name}</h3><span class="bzu-badge">{t("coming_soon")}</span></div>'
+    for name in models
+)
+st.markdown(f'<div class="bzu-grid">{cards}</div>', unsafe_allow_html=True)
 
 render_footer()

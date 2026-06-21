@@ -1,25 +1,40 @@
-"""Home — dashboard overview."""
+"""Home — professional dashboard overview (V2)."""
 
-import streamlit as st
+from src.i18n.translations import (
+    feature_cards,
+    page_header,
+    pulse_cards,
+    render_footer,
+    section_header,
+    stat_cards,
+    t,
+)
 
-from src.i18n.translations import page_setup, placeholder_banner, render_footer, t
+# --- Hero ------------------------------------------------------------------
+page_header("home_welcome", "home_overview", icon="🎓")
 
-lang = page_setup("home_title", icon="🏠")
+# --- Top statistics cards (placeholder values) -----------------------------
+stat_cards(
+    [
+        {"icon": "📄", "value": "0", "label_key": "stat_total_records"},
+        {"icon": "🌐", "value": "2", "label_key": "stat_languages"},
+        {"icon": "🧠", "value": "4", "label_key": "stat_models"},
+        {"icon": "🎯", "value": "0", "label_key": "stat_predictions"},
+    ]
+)
 
-st.title(f"🏠 {t('home_title')}")
-st.markdown(f"#### {t('home_welcome')}")
-st.write(t("home_overview"))
+# --- University Pulse ------------------------------------------------------
+section_header("university_pulse", "university_pulse_sub")
+pulse_cards(
+    [
+        {"icon": "🔥", "title_key": "pulse_most_discussed", "value_key": "no_data"},
+        {"icon": "⚠️", "title_key": "pulse_most_complaint", "value_key": "no_data"},
+        {"icon": "📢", "title_key": "pulse_latest_decision", "value_key": "no_data"},
+    ]
+)
 
-st.write("")
-
-# --- Top metrics (placeholder values) --------------------------------------
-c1, c2, c3, c4 = st.columns(4)
-c1.metric(t("metric_documents"), "—")
-c2.metric(t("metric_models"), "4")
-c3.metric(t("metric_languages"), "2")
-c4.metric(t("metric_features"), "9")
-
-st.write("")
-placeholder_banner()
+# --- Explore features ------------------------------------------------------
+section_header("quick_access", "quick_access_sub")
+feature_cards()
 
 render_footer()

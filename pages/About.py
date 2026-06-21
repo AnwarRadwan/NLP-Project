@@ -2,46 +2,27 @@
 
 import streamlit as st
 
-from src.i18n.translations import page_setup, render_footer, t
+from src.i18n.translations import page_header, render_footer, section_header, t
 
-lang = page_setup("about_title", icon="ℹ️")
-
-st.title(f"ℹ️ {t('about_title')}")
-st.markdown(f"#### {t('about_desc')}")
-st.write("")
+page_header("about_title", "about_desc", icon="ℹ️")
 
 # --- Pipeline stages -------------------------------------------------------
-st.subheader(t("about_pipeline_heading"))
+section_header("about_pipeline_heading")
 pipeline = [
-    "Dataset generation",
-    "Preprocessing",
-    "Tokenization",
-    "N-grams",
-    "TF-IDF",
-    "Embeddings",
-    "Logistic Regression",
-    "Neural Network",
-    "LSTM",
-    "AraBERT",
-    "Information Retrieval",
-    "Evaluation & Confusion Matrices",
+    "Dataset generation", "Preprocessing", "Tokenization", "N-grams",
+    "TF-IDF", "Embeddings", "Logistic Regression", "Neural Network",
+    "LSTM", "AraBERT", "Information Retrieval", "Evaluation & Confusion Matrices",
 ]
-st.markdown(
-    " ➜ ".join(f"**{stage}**" for stage in pipeline)
-)
-
-st.write("")
+st.markdown(" ➜ ".join(f"**{stage}**" for stage in pipeline))
 
 # --- Technology stack ------------------------------------------------------
-st.subheader(t("about_stack_heading"))
+section_header("about_stack_heading")
 stack = [
     "Python", "Streamlit", "scikit-learn", "PyTorch",
     "HuggingFace Transformers", "SQLite", "TF-IDF + Cosine Similarity",
 ]
 st.markdown(
-    " ".join(
-        f'<span class="bzu-badge">{tech}</span>' for tech in stack
-    ),
+    " ".join(f'<span class="bzu-badge">{tech}</span>' for tech in stack),
     unsafe_allow_html=True,
 )
 
