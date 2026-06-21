@@ -277,6 +277,63 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
         "en": "Transformer models are strongest for Arabic sentiment understanding.",
         "ar": "نماذج المحوّلات (Transformers) هي الأقوى لفهم المشاعر بالعربية.",
     },
+
+    # --- Professor & Course Insights page ----------------------------------
+    "pi_search_label": {
+        "en": "Search by professor or course",
+        "ar": "ابحث باسم المدرّس أو المساق",
+    },
+    "pi_search_placeholder": {
+        "en": "e.g. Ahmad Saleh or Algorithms",
+        "ar": "مثال: أحمد صالح أو خوارزميات",
+    },
+    "pi_hint": {
+        "en": "Showing all course feedback. Type above to filter by professor or course.",
+        "ar": "عرض جميع تقييمات المساقات. اكتب بالأعلى للتصفية حسب المدرّس أو المساق.",
+    },
+    "pi_no_results": {
+        "en": "No course feedback matches your search.",
+        "ar": "لا توجد تقييمات مساقات مطابقة لبحثك.",
+    },
+    "pi_matching_comments": {"en": "Matching comments", "ar": "التعليقات المطابقة"},
+    "pi_pct_positive": {"en": "Positive %", "ar": "نسبة الإيجابي"},
+    "pi_pct_negative": {"en": "Negative %", "ar": "نسبة السلبي"},
+    "pi_pct_neutral": {"en": "Neutral %", "ar": "نسبة المحايد"},
+    "pi_keywords": {"en": "Top Keywords", "ar": "أبرز الكلمات"},
+    "pi_samples": {"en": "Sample Comments", "ar": "نماذج من التعليقات"},
+
+    # --- AI Student Assistant page -----------------------------------------
+    "aia_input_label": {
+        "en": "Ask a question or describe a complaint",
+        "ar": "اطرح سؤالاً أو صف شكوى",
+    },
+    "aia_response_heading": {"en": "Assistant Response", "ar": "رد المساعد"},
+    "aia_similar_heading": {"en": "Top Similar Records", "ar": "أقرب السجلات"},
+    "aia_resp_course": {
+        "en": ("This message appears related to **course feedback**. Detected "
+               "sentiment: **{sentiment}**. Consider discussing it with your "
+               "instructor, the teaching assistant, or your course representative."),
+        "ar": ("يبدو أن رسالتك متعلقة بـ **تقييم المساقات**. المشاعر المكتشفة: "
+               "**{sentiment}**. ننصحك بمناقشتها مع المدرّس أو مساعد التدريس أو "
+               "ممثل المساق."),
+    },
+    "aia_resp_decisions": {
+        "en": ("This message appears related to **student decisions or student "
+               "movements**. Detected sentiment: **{sentiment}**. Check the official "
+               "student council or university announcements for accurate updates."),
+        "ar": ("يبدو أن رسالتك متعلقة بـ **قرارات الطلبة أو الحراك الطلابي**. "
+               "المشاعر المكتشفة: **{sentiment}**. تابع إعلانات مجلس الطلبة أو "
+               "الإعلانات الرسمية للجامعة."),
+    },
+    "aia_resp_discussions": {
+        "en": ("This message appears related to **university services** "
+               "(registration, fees, facilities, or campus discussions). Detected "
+               "sentiment: **{sentiment}**. Check the relevant university office or "
+               "official communication channels."),
+        "ar": ("يبدو أن رسالتك متعلقة بـ **خدمات الجامعة** (التسجيل، الرسوم، المرافق، "
+               "أو نقاشات الحرم). المشاعر المكتشفة: **{sentiment}**. راجع المكتب "
+               "المختص أو قنوات التواصل الرسمية."),
+    },
 }
 
 
