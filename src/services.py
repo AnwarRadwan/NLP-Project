@@ -88,9 +88,19 @@ def get_category_bundle() -> dict | None:
         return None
 
 
+# One representative artifact per trained model family (LR, NN, LSTM, BiLSTM, AraBERT).
+_MODEL_FAMILY_FILES = (
+    "logistic_regression_sentiment.joblib",  # Logistic Regression
+    "neural_network_sentiment.pt",           # Neural Network
+    "lstm_sentiment.pt",                     # LSTM
+    "bilstm_sentiment.pt",                   # BiLSTM
+    "arabert_sentiment.pt",                  # AraBERT
+)
+
+
 def model_count() -> int:
-    """Number of trained classifier bundles present on disk."""
-    return sum(p.exists() for p in (SENTIMENT_PATH, CATEGORY_PATH))
+    """Number of trained model families with artifacts on disk (e.g. 5 when all present)."""
+    return sum((MODELS_DIR / fname).exists() for fname in _MODEL_FAMILY_FILES)
 
 
 # --------------------------------------------------------------------------- #

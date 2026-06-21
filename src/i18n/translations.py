@@ -164,8 +164,8 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
     # --- Model Comparison --------------------------------------------------
     "model_comparison_title": {"en": "Model Comparison", "ar": "مقارنة النماذج"},
     "model_comparison_desc": {
-        "en": "Compare Logistic Regression, Neural Network, LSTM, and AraBERT.",
-        "ar": "قارن بين الانحدار اللوجستي والشبكة العصبية وLSTM وAraBERT.",
+        "en": "Compare Logistic Regression, Neural Network, LSTM, BiLSTM, and AraBERT.",
+        "ar": "قارن بين الانحدار اللوجستي والشبكة العصبية وLSTM وBiLSTM وAraBERT.",
     },
 
     # --- About -------------------------------------------------------------
@@ -225,6 +225,58 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
     "cat_course_feedback": {"en": "Course Feedback", "ar": "تقييم المساقات"},
     "cat_student_decisions": {"en": "Student Decisions", "ar": "قرارات الطلبة"},
     "cat_university_discussions": {"en": "University Discussions", "ar": "نقاشات جامعية"},
+
+    # --- Model Comparison page ---------------------------------------------
+    "mc_table_heading": {"en": "Results Table", "ar": "جدول النتائج"},
+    "mc_charts_heading": {"en": "Charts", "ar": "الرسوم البيانية"},
+    "mc_highlights_heading": {"en": "Highlights", "ar": "أبرز النتائج"},
+    "mc_conclusions_heading": {"en": "Conclusions", "ar": "الاستنتاجات"},
+    "mc_caption": {
+        "en": "All scores use the same group-aware split (held-out template skeletons).",
+        "ar": "جميع النتائج تستخدم نفس التقسيم المراعي للمجموعات (قوالب محجوبة).",
+    },
+
+    "mc_col_model": {"en": "Model", "ar": "النموذج"},
+    "mc_col_sent_acc": {"en": "Sentiment Accuracy", "ar": "دقة المشاعر"},
+    "mc_col_sent_f1": {"en": "Sentiment Macro-F1", "ar": "F1 الكلي للمشاعر"},
+    "mc_col_cat_acc": {"en": "Category Accuracy", "ar": "دقة الفئة"},
+    "mc_col_cat_f1": {"en": "Category Macro-F1", "ar": "F1 الكلي للفئة"},
+
+    "mc_chart_sent_f1": {"en": "Sentiment Macro-F1 by model", "ar": "F1 الكلي للمشاعر حسب النموذج"},
+    "mc_chart_cat_f1": {"en": "Category Macro-F1 by model", "ar": "F1 الكلي للفئة حسب النموذج"},
+
+    "mc_best_sentiment": {"en": "Best Sentiment Model", "ar": "أفضل نموذج للمشاعر"},
+    "mc_best_category": {"en": "Best Category Model", "ar": "أفضل نموذج للفئة"},
+    "mc_leakage_note": {
+        "en": ("Note: the Neural Network's category score (1.0000) is affected by "
+               "embedding leakage — its Word2Vec vectors were trained on the full "
+               "corpus, including the test rows. BiLSTM is the best leakage-free "
+               "category model."),
+        "ar": ("ملاحظة: نتيجة الفئة للشبكة العصبية (1.0000) متأثرة بتسرّب التمثيلات — "
+               "دُرِّبت متجهات Word2Vec على كامل البيانات بما فيها بيانات الاختبار. "
+               "BiLSTM هو أفضل نموذج للفئة بدون تسرّب."),
+    },
+
+    "mc_concl_1": {
+        "en": "TF-IDF + Logistic Regression is a very strong baseline.",
+        "ar": "‏TF-IDF مع الانحدار اللوجستي أساس قوي جداً.",
+    },
+    "mc_concl_2": {
+        "en": "LSTM underperformed on this dataset.",
+        "ar": "كان أداء LSTM ضعيفاً على هذه البيانات.",
+    },
+    "mc_concl_3": {
+        "en": "BiLSTM significantly improved over LSTM.",
+        "ar": "حسّن BiLSTM الأداء بشكل كبير مقارنةً بـ LSTM.",
+    },
+    "mc_concl_4": {
+        "en": "AraBERT achieved the best sentiment performance.",
+        "ar": "حقّق AraBERT أفضل أداء في تحليل المشاعر.",
+    },
+    "mc_concl_5": {
+        "en": "Transformer models are strongest for Arabic sentiment understanding.",
+        "ar": "نماذج المحوّلات (Transformers) هي الأقوى لفهم المشاعر بالعربية.",
+    },
 }
 
 
