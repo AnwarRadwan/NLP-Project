@@ -176,6 +176,55 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
     },
     "about_pipeline_heading": {"en": "Pipeline Stages", "ar": "مراحل المسار"},
     "about_stack_heading": {"en": "Technology Stack", "ar": "التقنيات المستخدمة"},
+
+    # --- Functional UI (integrated pages) ----------------------------------
+    "stat_categories": {"en": "Categories", "ar": "الفئات"},
+
+    "ui_top_k": {"en": "Results to show (Top K)", "ar": "عدد النتائج (Top K)"},
+    "ui_search_results": {"en": "Results", "ar": "النتائج"},
+    "ui_no_results": {"en": "No matching results.", "ar": "لا توجد نتائج مطابقة."},
+    "ui_enter_query": {"en": "Please enter a search query.", "ar": "الرجاء إدخال نص للبحث."},
+    "ui_similarity": {"en": "Similarity", "ar": "نسبة التشابه"},
+
+    "ui_input_text": {"en": "Enter your text", "ar": "أدخل النص"},
+    "ui_analyze": {"en": "Analyze", "ar": "تحليل"},
+    "ui_enter_text_warn": {"en": "Please enter some text.", "ar": "الرجاء إدخال نص."},
+    "ui_predicted_sentiment": {"en": "Predicted sentiment", "ar": "المشاعر المتوقعة"},
+    "ui_predicted_category": {"en": "Predicted category", "ar": "الفئة المتوقعة"},
+    "ui_confidence": {"en": "Confidence", "ar": "نسبة الثقة"},
+
+    "ui_language_distribution": {"en": "Language Distribution", "ar": "توزيع اللغات"},
+    "ui_sentiment_distribution": {"en": "Sentiment Distribution", "ar": "توزيع المشاعر"},
+    "ui_category_distribution": {"en": "Category Distribution", "ar": "توزيع الفئات"},
+    "ui_count": {"en": "Count", "ar": "العدد"},
+
+    "ui_preview": {"en": "Preview (first rows)", "ar": "معاينة (أول الصفوف)"},
+    "ui_shape": {"en": "Shape", "ar": "الأبعاد"},
+    "ui_columns": {"en": "Columns", "ar": "الأعمدة"},
+    "ui_rows": {"en": "Rows", "ar": "الصفوف"},
+    "ui_upload_help": {"en": "Upload a CSV file to preview it.", "ar": "ارفع ملف CSV لمعاينته."},
+    "ui_upload_error": {"en": "Could not read the file as CSV.", "ar": "تعذّر قراءة الملف كـ CSV."},
+
+    "err_model_missing": {
+        "en": "Model files are missing. Train them first:  python src/models/test_logistic_regression.py",
+        "ar": "ملفات النموذج غير موجودة. درّب النماذج أولاً:  python src/models/test_logistic_regression.py",
+    },
+    "err_dataset_missing": {
+        "en": "Dataset not found. Generate it (generate_dataset.py) then preprocess (run_preprocessing.py).",
+        "ar": "البيانات غير موجودة. أنشئها (generate_dataset.py) ثم عالجها (run_preprocessing.py).",
+    },
+    "err_engine": {
+        "en": "Search engine is unavailable. Make sure the dataset and TF-IDF artifacts exist.",
+        "ar": "محرك البحث غير متاح. تأكد من وجود البيانات وملفات TF-IDF.",
+    },
+
+    # Localized class labels
+    "sent_positive": {"en": "Positive", "ar": "إيجابي"},
+    "sent_negative": {"en": "Negative", "ar": "سلبي"},
+    "sent_neutral": {"en": "Neutral", "ar": "محايد"},
+    "cat_course_feedback": {"en": "Course Feedback", "ar": "تقييم المساقات"},
+    "cat_student_decisions": {"en": "Student Decisions", "ar": "قرارات الطلبة"},
+    "cat_university_discussions": {"en": "University Discussions", "ar": "نقاشات جامعية"},
 }
 
 

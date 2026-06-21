@@ -1,4 +1,4 @@
-"""Home — professional dashboard overview (V2)."""
+"""Home — professional dashboard overview (real values from the dataset)."""
 
 from src.i18n.translations import (
     feature_cards,
@@ -9,17 +9,28 @@ from src.i18n.translations import (
     stat_cards,
     t,
 )
+from src.services import load_dataset, model_count
 
 # --- Hero ------------------------------------------------------------------
 page_header("home_welcome", "home_overview", icon="🎓")
 
-# --- Top statistics cards (placeholder values) -----------------------------
+# --- Top statistics cards (real values) ------------------------------------
+df = load_dataset()
+if df is None:
+    import streamlit as st
+    st.error(f"⚠️ {t('err_dataset_missing')}")
+    total_records, n_languages, n_categories = 0, 0, 0
+else:
+    total_records = len(df)
+    n_languages = int(df["language"].nunique())
+    n_categories = int(df["category"].nunique())
+
 stat_cards(
     [
-        {"icon": "📄", "value": "0", "label_key": "stat_total_records"},
-        {"icon": "🌐", "value": "2", "label_key": "stat_languages"},
-        {"icon": "🧠", "value": "4", "label_key": "stat_models"},
-        {"icon": "🎯", "value": "0", "label_key": "stat_predictions"},
+        {"icon": "📄", "value": f"{total_records:,}", "label_key": "stat_total_records"},
+        {"icon": "🌐", "value": str(n_languages), "label_key": "stat_languages"},
+        {"icon": "🗂️", "value": str(n_categories), "label_key": "stat_categories"},
+        {"icon": "🧠", "value": str(model_count()), "label_key": "stat_models"},
     ]
 )
 
