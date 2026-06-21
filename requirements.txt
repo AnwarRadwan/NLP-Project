@@ -1,0 +1,28 @@
+# BZU Student Intelligence Platform — dependencies
+# ENCS5342 Natural Language Processing
+
+# Web app
+streamlit
+
+# Core data / ML
+numpy
+pandas
+scikit-learn
+
+# Deep learning
+torch
+
+# Transformers (AraBERT, etc.)
+transformers
+sentencepiece
+
+# Arabic NLP utilities
+arabert
+pyarabic
+
+# Visualization
+matplotlib
+seaborn
+
+# Misc
+tqdm
