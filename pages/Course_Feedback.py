@@ -3,7 +3,12 @@
 import streamlit as st
 
 from src.i18n.translations import page_header, render_footer, t
-from src.services import analyze_sentiment, get_sentiment_bundle, localize_sentiment
+from src.services import (
+    analyze_sentiment,
+    get_sentiment_bundle,
+    localize_sentiment,
+    log_prediction,
+)
 
 page_header("course_feedback_title", "course_feedback_desc", icon="📝")
 
@@ -32,5 +37,9 @@ if st.button(t("ui_analyze"), type="primary"):
             c1.metric(t("ui_predicted_sentiment"), f"{emoji} {localized}")
             c2.metric(t("ui_confidence"), f"{confidence * 100:.1f}%")
             st.progress(min(max(confidence, 0.0), 1.0))
+
+            # Persist the prediction (fail-safe).
+            log_prediction("Course Feedback", text,
+                           predicted_sentiment=label, sentiment_confidence=confidence)
 
 render_footer()

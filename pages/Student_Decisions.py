@@ -3,7 +3,12 @@
 import streamlit as st
 
 from src.i18n.translations import page_header, render_footer, t
-from src.services import analyze_category, get_category_bundle, localize_category
+from src.services import (
+    analyze_category,
+    get_category_bundle,
+    localize_category,
+    log_prediction,
+)
 
 page_header("student_decisions_title", "student_decisions_desc", icon="📢")
 
@@ -31,5 +36,9 @@ if st.button(t("ui_analyze"), type="primary"):
             c1.metric(t("ui_predicted_category"), localized)
             c2.metric(t("ui_confidence"), f"{confidence * 100:.1f}%")
             st.progress(min(max(confidence, 0.0), 1.0))
+
+            # Persist the prediction (fail-safe).
+            log_prediction("Student Decisions", text,
+                           predicted_category=label, category_confidence=confidence)
 
 render_footer()

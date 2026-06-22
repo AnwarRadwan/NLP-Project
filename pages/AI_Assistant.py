@@ -17,6 +17,7 @@ from src.services import (
     get_sentiment_bundle,
     localize_category,
     localize_sentiment,
+    log_prediction,
 )
 
 page_header("ai_assistant_title", "ai_assistant_desc", icon="🤖")
@@ -50,6 +51,11 @@ if st.button(t("ui_analyze"), type="primary"):
             c_label, c_conf = category
             s_loc = localize_sentiment(s_label)
             c_loc = localize_category(c_label)
+
+            # Persist the prediction (fail-safe).
+            log_prediction("AI Assistant", text,
+                           predicted_sentiment=s_label, sentiment_confidence=s_conf,
+                           predicted_category=c_label, category_confidence=c_conf)
 
             # --- Predictions + confidence --------------------------------
             col1, col2 = st.columns(2)

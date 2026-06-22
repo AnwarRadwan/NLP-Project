@@ -176,6 +176,17 @@ TRANSLATIONS: dict[str, dict[str, str]] = {
     },
     "about_pipeline_heading": {"en": "Pipeline Stages", "ar": "مراحل المسار"},
     "about_stack_heading": {"en": "Technology Stack", "ar": "التقنيات المستخدمة"},
+    "about_storage_heading": {"en": "Data Storage (SQLite)", "ar": "تخزين البيانات (SQLite)"},
+    "about_storage_note": {
+        "en": ("The platform uses a local SQLite database to persist the bilingual "
+               "dataset records and a history of predictions logged from the Course "
+               "Feedback, Student Decisions, and AI Assistant pages."),
+        "ar": ("تستخدم المنصة قاعدة بيانات SQLite محلية لحفظ سجلات البيانات ثنائية "
+               "اللغة وسجل التنبؤات المُسجَّلة من صفحات تقييم المساقات وقرارات الطلبة "
+               "والمساعد الذكي."),
+    },
+    "about_storage_records": {"en": "Dataset records stored", "ar": "سجلات البيانات المخزّنة"},
+    "about_storage_logs": {"en": "Predictions logged", "ar": "التنبؤات المسجّلة"},
 
     # --- Functional UI (integrated pages) ----------------------------------
     "stat_categories": {"en": "Categories", "ar": "الفئات"},

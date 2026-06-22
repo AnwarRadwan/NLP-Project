@@ -22,6 +22,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 import pandas as pd  # noqa: E402
 import streamlit as st  # noqa: E402
 
+from src.database import db as _db  # noqa: E402
 from src.i18n.translations import t  # noqa: E402
 from src.models.logistic_regression import (  # noqa: E402
     CATEGORY_PATH,
@@ -101,6 +102,47 @@ _MODEL_FAMILY_FILES = (
 def model_count() -> int:
     """Number of trained model families with artifacts on disk (e.g. 5 when all present)."""
     return sum((MODELS_DIR / fname).exists() for fname in _MODEL_FAMILY_FILES)
+
+
+# --------------------------------------------------------------------------- #
+# SQLite persistence (fail-safe: never breaks the UI)
+# --------------------------------------------------------------------------- #
+@st.cache_resource(show_spinner=False)
+def ensure_db() -> dict:
+    """Initialize the database and load the dataset once per session."""
+    try:
+        return _db.bootstrap()
+    except Exception:
+        return {"ok": False, "db_path": str(_db.DB_PATH),
+                "dataset_records": 0, "prediction_logs": 0}
+
+
+def log_prediction(source_page: str, input_text: str,
+                   predicted_sentiment: str | None = None,
+                   sentiment_confidence: float | None = None,
+                   predicted_category: str | None = None,
+                   category_confidence: float | None = None) -> None:
+    """Log a prediction; silently ignores any database error."""
+    try:
+        ensure_db()
+        _db.log_prediction(source_page, input_text, predicted_sentiment,
+                           sentiment_confidence, predicted_category,
+                           category_confidence)
+    except Exception:
+        pass
+
+
+def db_status() -> dict:
+    """Return DB path + record/log counts for display (safe defaults on error)."""
+    try:
+        ensure_db()
+        return {
+            "path": str(_db.DB_PATH),
+            "dataset_records": _db.dataset_record_count(),
+            "prediction_logs": _db.prediction_log_count(),
+        }
+    except Exception:
+        return {"path": str(_db.DB_PATH), "dataset_records": 0, "prediction_logs": 0}
 
 
 # --------------------------------------------------------------------------- #
