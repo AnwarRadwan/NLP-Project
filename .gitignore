@@ -1,8 +1,39 @@
-﻿__pycache__/
-*.pyc
-venv/
+# Byte-compiled / optimized / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
 .venv/
-.env
-.vscode/
+venv/
+env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Jupyter
 .ipynb_checkpoints/
-*.log
+
+# Data & model artifacts (keep the folders, ignore the contents)
+data/raw/*
+data/processed/*
+data/db/*
+models_store/*
+!**/.gitkeep
+
+# Databases
+*.sqlite
+*.sqlite3
+*.db
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+
+# Claude Code
+.claude/
